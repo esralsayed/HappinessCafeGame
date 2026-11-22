@@ -2,6 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// One customer: walks to the counter, places an order through the OrderCaption,
+/// then finds a chair (a fixed one if given, otherwise any free one) and sits down.
+/// Spawned and started by CustomerSpawner.
+/// </summary>
 [RequireComponent(typeof(NavMeshAgent))]
 public class Customer : MonoBehaviour
 {
@@ -16,11 +21,21 @@ public class Customer : MonoBehaviour
     NavMeshAgent agent;
     Animator animator;
     CustomerSeat seat;
+    CustomerSeat preferredSeat;
+    System.Action onOrdered;
 
-    public void Begin(string nameText, string orderText, Vector3 orderSpot, Vector3 faceDirection)
+    /// <summary>
+    /// Starts this customer's visit. Called by CustomerSpawner right after spawning.
+    /// onOrderTaken runs once the player confirms the order; fixedSeat is an optional chair
+    /// (e.g. Esra's corner table), otherwise any free chair is used.
+    /// </summary>
+    public void Begin(string nameText, string orderText, Vector3 orderSpot, Vector3 faceDirection,
+                      System.Action onOrderTaken = null, CustomerSeat fixedSeat = null)
     {
         customerName = nameText;
         order = orderText;
+        onOrdered = onOrderTaken;
+        preferredSeat = fixedSeat;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         StartCoroutine(Visit(orderSpot, faceDirection));
@@ -35,9 +50,10 @@ public class Customer : MonoBehaviour
         bool confirmed = false;
         OrderCaption.Instance.Show(customerName + ": " + order, () => confirmed = true);
         while (!confirmed) yield return null;
+        onOrdered?.Invoke();   // lets the spawner send the next customer
 
-        // Find a free chair and sit down
-        seat = CustomerSeat.FindFree();
+        // Sit on the fixed chair if it's free, otherwise on any free chair
+        seat = (preferredSeat != null && !preferredSeat.taken) ? preferredSeat : CustomerSeat.FindFree();
         if (seat == null) yield break;
         seat.taken = true;
 
