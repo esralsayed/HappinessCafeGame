@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7a06ac0941809459f30e986ea0934b, type: 3}
+  m_Name: CaramelLatte
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeData
+  id: caramelLatte
+  displayName: Caramel Latte
+  kind: 1
+  level: 3
+  steps:
+  - action: 0
+    shots: 1
+    cup: 0
+    temperature: 60
+    flavour: 0
+    forgotText: 
+    promptText: 
+  - action: 1
+    shots: 1
+    cup: 0
+    temperature: 60
+    flavour: 0
+    forgotText: 
+    promptText: 
+  - action: 2
+    shots: 1
+    cup: 0
+    temperature: 60
+    flavour: 0
+    forgotText: 
+    promptText: 
+  - action: 3
+    shots: 1
+    cup: 2
+    temperature: 60
+    flavour: 0
+    forgotText: 
+    promptText: 
+  - action: 4
+    shots: 1
+    cup: 0
+    temperature: 60
+    flavour: 1
+    forgotText: 
+    promptText: 
+  - action: 5
+    shots: 1
+    cup: 0
+    temperature: 60
+    flavour: 0
+    forgotText: 
+    promptText: 
+  - action: 6
+    shots: 1
+    cup: 0
+    temperature: 60
+    flavour: 0
+    forgotText: 
+    promptText: 
+  - action: 8
+    shots: 1
+    cup: 0
+    temperature: 60
+    flavour: 0
+    forgotText: 
+    promptText: 
+  fact: "Caramel is sugar heated until it turns brown, at about 170 \xB0C."
+  marginNote: Some nights I still missed the city. Then someone would smile at their cup, and I'd remember why I stayed.
+  icon: {fileID: 0}

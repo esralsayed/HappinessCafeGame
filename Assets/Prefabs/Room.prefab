@@ -270,7 +270,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2642477650824716399}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1893,6 +1893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Counter_2
       objectReference: {fileID: 0}
+    - target: {fileID: 8236004846647669115, guid: 17da174e97c75fa489f169d25f56acd7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2355,6 +2359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1018323563847714556}
     m_Modifications:
+    - target: {fileID: 850664546517989909, guid: 5694f18ffe599954a9e6ec0a17a7af68, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
     - target: {fileID: 1211141288747244480, guid: 5694f18ffe599954a9e6ec0a17a7af68, type: 3}
       propertyPath: m_Name
       value: Display_Counter
@@ -3778,6 +3786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   dropPoint: {fileID: 0}
   snapDistance: 0.6
+  returnAfterPlacedSeconds: 0
   onPlaced:
     m_PersistentCalls:
       m_Calls: []
@@ -3993,6 +4002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1018323563847714556}
     m_Modifications:
+    - target: {fileID: 3447705673884288151, guid: 5ffacfcacfdce4e48beffd6f659becf2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
     - target: {fileID: 3807875377541899586, guid: 5ffacfcacfdce4e48beffd6f659becf2, type: 3}
       propertyPath: m_Name
       value: Counter_1
@@ -7849,6 +7862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: counter left
       objectReference: {fileID: 0}
+    - target: {fileID: 8236004846647669115, guid: 17da174e97c75fa489f169d25f56acd7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

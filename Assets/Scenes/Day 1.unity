@@ -861,6 +861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1358729974}
+  - component: {fileID: 1358729975}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -883,6 +884,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358729975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358729973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d4c1ff27de27e4eac632acaa6d9260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BrewingSession
+  testRecipe: {fileID: 11400000, guid: de7e0bfb9061a864f81f29027e1d8750, type: 2}
+  testGuided: 0
+  currentRecipe: {fileID: 0}
+  guided: 0
+  moves: []
+  secondsSoFar: 0
 --- !u!1 &1406502009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,6 +1599,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 315651100331863594, guid: e51164d4eb7026e43857595bc51311d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
+    - target: {fileID: 1044903160571843347, guid: e51164d4eb7026e43857595bc51311d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
     - target: {fileID: 2748991747235441820, guid: e51164d4eb7026e43857595bc51311d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1
@@ -1620,10 +1647,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3567590247886675523, guid: e51164d4eb7026e43857595bc51311d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
+    - target: {fileID: 4670147121386474330, guid: e51164d4eb7026e43857595bc51311d5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6089706405414841778, guid: e51164d4eb7026e43857595bc51311d5, type: 3}
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
+    - target: {fileID: 8243055632850813988, guid: e51164d4eb7026e43857595bc51311d5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f387b07fd33ae5b4d942ff5310658234, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
