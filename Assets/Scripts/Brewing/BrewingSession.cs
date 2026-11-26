@@ -33,6 +33,26 @@ public class PlayerMove
     public int choice;   // same encoding as RecipeStep.CorrectChoice
 
     public override string ToString() => action + (choice != 0 ? "(" + choice + ")" : "");
+
+    /// <summary>Short "step done" text for on-screen feedback, e.g. "Beans added", "Small cup".</summary>
+    public string DoneText
+    {
+        get
+        {
+            switch (action)
+            {
+                case StepAction.AddBeans: return "Beans added";
+                case StepAction.Grind: return "Beans ground";
+                case StepAction.Espresso: return choice == 2 ? "Double shot made" : "Single shot made";
+                case StepAction.Cup: return ((CupSize)choice) + " cup chosen";
+                case StepAction.Steam: return "Milk steamed to " + choice + " °C";
+                case StepAction.Pour: return "Milk poured";
+                case StepAction.Flavour: return ((Flavour)choice) + " added";
+                case StepAction.Topping: return ((Flavour)choice) + " sprinkled on top";
+                default: return action.ToString();
+            }
+        }
+    }
 }
 
 /// <summary>What happened when a drink was served. Sent with OnDrinkServed.</summary>

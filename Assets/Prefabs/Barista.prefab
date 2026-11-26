@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1300264591214683932}
   - component: {fileID: 6925312336405839563}
   - component: {fileID: 280750633827916817}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barista
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -89,7 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950603b0d7781c840b4a3e989fcb8e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
-  reach: 3
+  reach: 4.5
+  allowClick: 1
 --- !u!114 &280750633827916817
 MonoBehaviour:
   m_ObjectHideFlags: 0

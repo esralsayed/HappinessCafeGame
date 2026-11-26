@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b001bb1993f45046b990913b93e292a, type: 3}
+  m_Name: L1_TutorialOutro
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  id: L1_TutorialOutro
+  lines:
+  - speaker: 1
+    text: Thank you!
+    setFlag: 
+  - speaker: 0
+    text: One more thing, {name}. Every few days Mrs. Lulu comes in. She's our pickiest regular, and very hard to please. Be ready for her!
+    setFlag: luluWarned
+  requiredFlags: []
+  flagOnEnd: 
+  choices: []

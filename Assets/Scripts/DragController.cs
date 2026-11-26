@@ -15,7 +15,7 @@ public class DragController : MonoBehaviour
         // The cursor is locked, so aim from the center of the screen
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
-        if (Input.GetMouseButtonDown(0) && held == null && !PlayerController.UIOpen)
+        if (Input.GetMouseButtonDown(0) && held == null && !PlayerController.InputBlocked)
         {
             if (Physics.Raycast(ray, out RaycastHit hit, reach))
             {

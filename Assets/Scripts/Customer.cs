@@ -3,7 +3,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 /// <summary>
-/// One customer: walks to the counter, places an order through the OrderCaption,
+/// One customer: walks to the counter; a Tutorial customer starts Grandma's lesson and waits
+/// for it to end, a Rated customer orders through the OrderManager (or says its own
+/// order text in the dialogue box if the scene has none),
 /// then finds a chair (a fixed one if given, otherwise any free one) and sits down.
 /// Spawned and started by CustomerSpawner.
 /// </summary>
@@ -17,12 +19,15 @@ public class Customer : MonoBehaviour
 
     public string customerName;
     public string order;
+    [Tooltip("Stars for this customer's drink (1-3), -1 until served. Set by the OrderManager.")]
+    public int starsReceived = -1;
 
     NavMeshAgent agent;
     Animator animator;
     CustomerSeat seat;
     CustomerSeat preferredSeat;
     System.Action onOrdered;
+    VisitKind kind = VisitKind.Rated;
 
     /// <summary>
     /// Starts this customer's visit. Called by CustomerSpawner right after spawning.
@@ -30,12 +35,14 @@ public class Customer : MonoBehaviour
     /// (e.g. Esra's corner table), otherwise any free chair is used.
     /// </summary>
     public void Begin(string nameText, string orderText, Vector3 orderSpot, Vector3 faceDirection,
-                      System.Action onOrderTaken = null, CustomerSeat fixedSeat = null)
+                      System.Action onOrderTaken = null, CustomerSeat fixedSeat = null,
+                      VisitKind visitKind = VisitKind.Rated)
     {
         customerName = nameText;
         order = orderText;
         onOrdered = onOrderTaken;
         preferredSeat = fixedSeat;
+        kind = visitKind;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         StartCoroutine(Visit(orderSpot, faceDirection));
@@ -48,7 +55,37 @@ public class Customer : MonoBehaviour
         yield return Turn(faceDirection);
 
         bool confirmed = false;
-        OrderCaption.Instance.Show(customerName + ": " + order, () => confirmed = true);
+        TutorialController tutorial = kind == VisitKind.Tutorial ? FindAnyObjectByType<TutorialController>() : null;
+        if (tutorial != null)
+        {
+            // Tutorial customer: Grandma's lesson runs while this customer waits at the counter.
+            bool lessonDone = false;
+            System.Action finished = () => lessonDone = true;
+            tutorial.OnTutorialFinished += finished;
+            tutorial.customer = transform;
+            tutorial.Begin();
+            while (!lessonDone) yield return null;
+            tutorial.OnTutorialFinished -= finished;
+            confirmed = true;
+        }
+        else if (OrderManager.Instance != null)
+        {
+            // The OrderManager picks a real recipe + order line, the customer says it,
+            // and the drink starts. Stars arrive in starsReceived after serving.
+            OrderManager.Instance.TakeOrder(customerName, stars => starsReceived = stars, null, null, transform);
+            yield return null;
+            while (DialogueManager.Instance != null && DialogueManager.Instance.IsPlaying) yield return null;
+            confirmed = true;
+        }
+        else
+        {
+            // No OrderManager in this scene: say the visit's own order text.
+            // If another conversation is playing (e.g. Grandma), wait until it ends.
+            while (DialogueManager.Instance != null && DialogueManager.Instance.IsPlaying) yield return null;
+            if (DialogueManager.Instance == null ||
+                !DialogueManager.Instance.PlayLine(Speaker.Customer, order, () => confirmed = true, customerName))
+                confirmed = true;
+        }
         while (!confirmed) yield return null;
         onOrdered?.Invoke();   // lets the spawner send the next customer
 

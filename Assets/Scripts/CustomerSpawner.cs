@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>Tutorial = Grandma's lesson customer (no rating). Rated = orders through the OrderManager.</summary>
+public enum VisitKind { Rated, Tutorial }
+
 /// <summary>One customer's visit. Leave any field empty to have it picked at random from the spawner's pools.</summary>
 [Serializable]
 public class CustomerVisit
 {
+    [Tooltip("Tutorial: starts Grandma's lesson at the counter. Rated: orders through the OrderManager.")]
+    public VisitKind kind = VisitKind.Rated;
     [Tooltip("Empty = random name")] public string customerName;
     [TextArea, Tooltip("Empty = random order")] public string order;
     [Tooltip("Empty = random model")] public Customer prefab;
@@ -44,8 +49,14 @@ public class CustomerSpawner : MonoBehaviour
     public Transform spawnPoint;
     public Transform orderSpot;
 
+    /// <summary>Number of Rated visits in today's list (used by the LevelManager).</summary>
+    public int RatedVisitCount => visits.FindAll(v => v.kind == VisitKind.Rated).Count;
+
     /// <summary>Raised once every customer in the list has placed their order.</summary>
     public event Action OnAllCustomersArrived;
+
+    /// <summary>A customer came through the door (passes the customer and the visit kind).</summary>
+    public event Action<Customer, VisitKind> OnCustomerEntered;
 
     void Start()
     {
@@ -71,7 +82,8 @@ public class CustomerSpawner : MonoBehaviour
             yield return SwingDoor(doorOpenAngle);
             Customer customer = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
             customer.Begin(nameText, orderText, orderSpot.position, orderSpot.forward,
-                           () => ordered = true, visit.seat);
+                           () => ordered = true, visit.seat, visit.kind);
+            OnCustomerEntered?.Invoke(customer, visit.kind);
             yield return new WaitForSeconds(doorHoldTime);
             yield return SwingDoor(-doorOpenAngle);
 
