@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     public static bool InputBlocked => UIOpen || Paused || Time.frameCount <= unblockFrame;
     static int unblockFrame = -1;
 
+    // Editor with domain reload off keeps statics between Play sessions: stopping Play while a menu
+    // was open would leave the next session frozen. Reset at every Play start.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics() { UIOpen = false; Paused = false; unblockFrame = -1; }
+
     CharacterController cc;
     float pitch;
     float yVelocity;

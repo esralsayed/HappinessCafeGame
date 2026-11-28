@@ -1650,6 +1650,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 81683850347828798, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 81683850347828798, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 806755119818272691, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1682,6 +1690,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1194685727163328336, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1499820619223944930, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1694,13 +1706,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1905356843084793916, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSize
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905356843084793916, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503469849591687060, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281025140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503469849591687060, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819556346980990062, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819556346980990062, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4819556346980990062, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4292604154
+      value: 4291352568
       objectReference: {fileID: 0}
     - target: {fileID: 4819556346980990062, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975064855842044959, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975064855842044959, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6722005890683284702, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1762,6 +1806,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ServeController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7885161087736987357, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4291352568
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885161087736987357, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 8013461273494585292, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -1785,6 +1837,22 @@ PrefabInstance:
     - target: {fileID: 8206459070394437858, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ServeController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657018919204363434, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281025140
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657018919204363434, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748362932953569201, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSize
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748362932953569201, guid: fc7f6aa1a5fd1884ab44cd995aff75ae, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

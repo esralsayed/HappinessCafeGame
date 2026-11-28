@@ -51,6 +51,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject panel;
     public Image portrait;
     public TMP_Text nameLabel;
+    [Tooltip("Font for Grandma's lines (name + text).")] public TMP_FontAsset grandmaFont;
+    [Tooltip("Font for every other speaker's lines (name + text).")] public TMP_FontAsset otherFont;
     public TMP_Text bodyText;
     [Tooltip("'Next' / 'Done' hint. Shown only when a line is finished and waits for input.")]
     public GameObject nextHint;
@@ -324,6 +326,12 @@ public class DialogueManager : MonoBehaviour
         SpeakerInfo info = speakers.Find(s => s.speaker == speaker);
         string shownName = info != null ? Fill(info.displayName) : speaker.ToString();
         if (IsPlaying && !string.IsNullOrEmpty(nameOverride)) shownName = nameOverride;
+        TMP_FontAsset lineFont = speaker == Speaker.Grandma ? grandmaFont : otherFont;
+        if (lineFont != null)
+        {
+            if (bodyText) bodyText.font = lineFont;
+            if (nameLabel) nameLabel.font = lineFont;
+        }
         if (nameLabel)
         {
             nameLabel.text = shownName;
