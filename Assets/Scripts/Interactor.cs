@@ -6,7 +6,7 @@
 //     (BrewingStation hooks itself onto that event).
 //   - Left-click is ignored on objects with a Draggable: those are grabbed by
 //     DragController instead, so one click never both uses and grabs.
-//   - Nothing happens while a menu / dialogue is open (PlayerController.UIOpen).
+//   - Nothing happens while someone is talking or a menu is open (PlayerController.InputBlocked).
 //   - CurrentTarget always holds the Interactable the dot is aimed at (or null)
 //     and OnTargetChanged fires when it changes: used later by the glow and
 //     the contextual prompt ("Click: Grind").
@@ -46,7 +46,7 @@ public class Interactor : MonoBehaviour
         // 1. What is the dot aimed at?
         Interactable aimed = null;
         bool aimedIsDraggable = false;
-        if (!PlayerController.UIOpen)
+        if (!PlayerController.InputBlocked)
         {
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             if (Physics.Raycast(ray, out RaycastHit hit, reach))
